@@ -126,6 +126,148 @@ d = i => console.log(i);
 
 d('JavaScript');
 
+const makeClosure = () => {
+    const name = 'Closure';
+    const displayName = () => {
+      alert(name);
+    }
+    return displayName;
+  }
+  
+const testFn = makeClosure();
+testFn();
+
+const isPositive = n => {
+    if (n >= 0) {
+        console.log('positive');
+    } else {
+        console.log('negative');
+    }
+}
+
+isPositive(5);
+isPositive(-5);
+
+const isTruthy = v => {
+    if (v) {
+        console.log('Truthy');
+    } else {
+        console.log('Falsy');
+    }
+}
+
+isTruthy({});
+isTruthy('');
+
+const mapToStars = n => {
+    let res;
+    switch (n) {
+        case 1: res = '*'; break;
+        case 2: res = '**'; break;
+        case 3: res = '***'; break;
+        case 4: res = '****'; break;
+        case 5: res = '*****'; break;
+        default: res = '-'
+    }
+
+    return res;
+}
+
+const throwIfFalsy = v => {
+    if (!v) {
+        throw new Error('Falsy value');
+    }
+}
+
+try {
+    throwIfFalsy('Truthy');
+    console.log('success');
+} catch (err) {
+    console.error('Caught error', err);
+}
+
+try {
+    throwIfFalsy(false);
+    console.log('success2');
+} catch (err) {
+    console.error('Caught error2', err);
+}
+
+for(let i = 0; i <= 4; i++) {
+    console.log('For loop', i + 1);
+}
+
+let i = 0;
+while (i <= 4) {
+    console.log('While loop', i + 1);
+    i++;
+}
+
+let x = 5;
+let y = 4;
+
+console.log(x + y);
+console.log(x - y);
+console.log(x * y);
+console.log(x / y);
+console.log(x % y);
+
+x += y; // x = x + y
+console.log(x);
+
+x++ // x = x + 1
+console.log(x);
+
+console.log(!true);
+
+
+console.log(true && true);
+const e1 = 'Cat' && 'Dog';    // t && t returns Dog
+const e2 = false && 'Cat';    // f && t returns false
+const e3 = 'Cat' && false;    // t && f returns false
+
+console.log(e1, e2, e3);
+
+
+console.log(false || true);
+const e4 = 'Cat' || 'Dog';    // t || t returns Cat
+const e5 = false || 'Cat';    // f || t returns Cat
+const e6 = 'Cat' || false;    // t || f returns Cat
+const e7 = false || false;    // f || f returns false
+
+console.log(e4, e5, e6, e7);
+
+console.log('Web' + 'uni');
+
+const isAdult = age => {
+    let res;
+    res = age <= 18 ? false : true;
+    return res;
+}
+
+console.log(isAdult(16));
+console.log(isAdult(22));
+
+const person = {
+    name: 'John',
+    email: 'john@example.com'
+}
+
+delete person.email;
+
+console.log(person);
+
+console.log(typeof 5);
+console.log(typeof 'a string');
+console.log(typeof []);
+console.log(typeof {});
+console.log(typeof new Date());
+console.log(typeof (() => {}));
+console.log([] instanceof Array);
+console.log([] instanceof Object);
+console.log({} instanceof Object);
+console.log(new Date() instanceof Date);
+
 document.addEventListener('DOMContentLoaded', () => {
     const email = localStorage.getItem('email');
     if (email) {
